@@ -1,0 +1,24 @@
+<!-- contacts/templates/contacts/contact_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit Contact</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+</head>
+<body>
+<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Contact</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <button><a href="{% url 'contact_list' %}">Cancel</a></button>
+</form>
+
+</body>
+</html>
+
+
+
+

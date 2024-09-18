@@ -1,0 +1,27 @@
+<!-- contacts/templates/contacts/contact_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+</head>
+<body>
+<h1>Contact List</h1>
+<a href="{% url 'add_contact' %}">Add New Contact</a>
+<ul>
+    {% for contact in contacts %}
+        <li>
+            <a href="{% url 'edit_contact' contact.pk %}">{{ contact.first_name }} {{ contact.last_name }}</a> - 
+            {{ contact.email }} - {{ contact.phone_number }}
+            <form action="{% url 'delete_contact' contact.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+

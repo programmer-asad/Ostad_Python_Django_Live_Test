@@ -1,0 +1,22 @@
+<!-- contacts/templates/contacts/contact_confirm_delete.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Contact</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+</head>
+<body>
+<h1>Delete Contact</h1>
+<p>Are you sure you want to delete {{ contact.first_name }} {{ contact.last_name }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+    <button><a href="{% url 'contact_list' %}">Cancel</a></button>
+</form>
+
+</body>
+</html>
+
+
